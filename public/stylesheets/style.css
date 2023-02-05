@@ -1,8 +1,40 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.users .head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #8EB1C7;
+  border-radius: 30px;
+  padding: 1rem;
+  margin: 0.2rem;
 }
+.users .head button {
+  background: none;
+  border: none;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+.users .posts {
+  display: none;
+  flex-direction: column;
+  background: none;
+}
+.users .posts.show {
+  display: flex;
+}
+.users .posts .post {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #C1BFB5;
+  border-radius: 30px;
+  padding: 1rem;
+  margin: 0.5rem;
+}/*# sourceMappingURL=style.css.map */

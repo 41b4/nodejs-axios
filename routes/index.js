@@ -1,5 +1,6 @@
 var express = require('express');
 let axios =require('axios')
+const cookie = require('cookie-parser')
 var router = express.Router();
 
 /* GET home page. */
@@ -18,8 +19,22 @@ router.get('/posts', async (req, res)=> {
   })
 });
 
-router.get('/dashboard', (req, res)=>{
-  res.render('dashboard')
+router.get('/cookie/:set',(req, res, next)=>{
+  console.log(req.params)
+  res.cookie('theme' , req.params.set)
+  res.redirect('/')
+})
+
+router.get('/about/cookie/:set',(req, res, next)=>{
+  console.log(req.params)
+  res.cookie('theme' , req.params.set)
+  res.redirect('/about')
+})
+
+router.get('/posts/cookie/:set',(req, res, next)=>{
+  console.log(req.params)
+  res.cookie('theme' , req.params.set)
+  res.redirect('/posts')
 })
 
 module.exports = router;

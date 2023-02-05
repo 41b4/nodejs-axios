@@ -3,32 +3,163 @@
     padding: 0
     box-sizing: border-box
     font-family: 'Nunito Sans', sans-serif
-.users
-    .head
+    text-decoration: none!important
+//themes
+$lightwhite:#F1F3F8
+$eerieblack:#191716
+//notes
+$green:#8CB369
+$yellow:#F4E285
+$orange:#F4A259
+$blue:#5B8E7D
+$red:#BC4B51
+
+//main theme light
+.theme
+    --text: #{$eerieblack}
+    --bg: #{$lightwhite}
+    //dark-theme
+    &--dark
+        --text: #{$lightwhite}
+        --bg: #{$eerieblack}
+
+.container
+    height: 100vh
+    display: flex
+    flex-direction: column
+    background: var(--bg)
+    header
+        height: 10vh
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        h1
+            margin-left: 2rem
+            color: var(--text)
+    .navbar
         display: flex
         flex-direction: row
         align-items: center
         justify-content: space-between
-        background: #8EB1C7
-        border-radius: 30px
-        padding: 1rem
-        margin: .2rem
-        button
-            background: none
-            border: none
-            border-bottom: 1px solid black
+        margin-right: 1rem
+        .nav-menu
+            display: flex
+            flex-direction: row
+            align-items: center
+            justify-content: space-evenly
+            li
+                list-style: none
+                margin: 0 .5rem 0 .5rem
+                width: 6rem
+                display: flex
+                justify-content: center
+                button
+                    padding: .5rem 1rem
+                    background: $orange
+                    border: none
+                    border-radius: 30px
+                    width: 100%
+                a
+                    color: var(--text)
+                    text-decoration: none
+        .hamburger
+            display: none
             cursor: pointer
-    .posts
-        display: none
+            span
+                width: 2rem
+                background-color: var(--text)
+                height: .3rem
+                margin: 4px
+                border-radius: 20%
+    footer
+        height: 5vh
+        display: flex
+        justify-content: flex-end
+        #theme
+            margin-right: 1rem
+            height: 1.5rem
+            width: 2.5rem
+            border: 3px solid var(--text)
+            display: flex
+            flex-direction: row
+            align-items: center
+            justify-content: space-between
+            border-radius: 30px
+            #light
+                background: $lightwhite
+                width: 1rem
+                height: 1rem
+                border: none
+                border-radius: 100%
+            #dark
+                background: $eerieblack
+                width: 1rem
+                height: 1rem
+                border: none
+                border-radius: 100%
+    .index
+        height: 95vh
+    .p
+        height: 95vh
+        overflow: hidden
+        overflow-y: scroll
+        display: flex
         flex-direction: column
-        background: none
-        &.show
+    .users
+        .head
             display: flex
-        .post
-            display: flex
-            flex-direction: column
-            align-items: flex-start
-            background: #C1BFB5
+            flex-direction: row
+            align-items: center
+            justify-content: space-between
+            background: #8EB1C7
             border-radius: 30px
             padding: 1rem
-            margin: .5rem
+            margin: .2rem
+            button
+                background: none
+                border: none
+                border-bottom: 1px solid black
+                cursor: pointer
+        .posts
+            display: none
+            flex-direction: column
+            background: none
+            &.show
+                display: flex
+            .post
+                display: flex
+                flex-direction: column
+                align-items: flex-start
+                background: #C1BFB5
+                border-radius: 30px
+                padding: 1rem
+                margin: .5rem
+@media (max-width: 700px)
+    .hamburger
+        display: flex!important
+        flex-direction: column
+        z-index: 40
+    .hamburger.active
+        span
+           background-color: var(--bg)!important
+    .nav-menu
+        position: fixed
+        top: 0
+        left: -100%
+        flex-direction: column!important
+        width: 100%!important
+        height: 100vh
+        transition: .3s
+    .nav-item
+        width: 11rem!important
+        .nav-link
+            color: var(--bg)!important
+            font-size: 40px
+            font-weight: 600
+            z-index: 3
+    .nav-menu.active
+        left: 0!important
+        top: 0!important
+        z-index: 10
+        background-color: var(--text)     

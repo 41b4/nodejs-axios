@@ -1,37 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <title>Posts</title>
-</head>
-<body>
-    <h1>Posts</h1>
-    <% for(let u=1;u < 11; u++){ %>
-        <section class="users">
-            <div class="head">
-               <h1>User <%=u%></h1>
-                <button onclick="seePosts('<%=u%>')">See posts</button> 
-            </div>
-            <div class="posts <%=u%>">
-                <% for(let i=0;i < posts.length; i++){ %>
-                    <% if (posts[i].userId==u){ %>
-                    <div class="post">
-                        <p><%= posts[i].id %></p> 
-                        <h3><%= posts[i].title %></h3>
-                        <p><%= posts[i].body %></p> 
-                    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <title>Json placeholder App</title>
+  </head>
+  <body class="theme">
+    <section class="container">
+      <header>
+        <h1>Json placeholder App</h1>
+        <nav class="navbar">
+          <ul class="nav-menu">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about">About us</a></li>
+            <li class="nav-item"><a class="nav-link" href="/posts">Posts</a></li>
+          </ul>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </header>
+      <section class="p">
+        <% for(let u=1;u < 11; u++){ %>
+            <section class="users">
+                <div class="head">
+                   <h1>User <%=u%></h1>
+                    <button onclick="seePosts('<%=u%>')">See posts</button> 
+                </div>
+                <div class="posts <%=u%>">
+                    <% for(let i=0;i < posts.length; i++){ %>
+                        <% if (posts[i].userId==u){ %>
+                        <div class="post">
+                            <p><%= posts[i].id %></p> 
+                            <h3><%= posts[i].title %></h3>
+                            <p><%= posts[i].body %></p> 
+                        </div>
+                        <% } %>
                     <% } %>
-                <% } %>
-            </div>
-            
-        </section>
-    <% } %>
+                </div>
+                
+            </section>
+        <% } %>
+      </section>
+      <footer>
+        <div id="theme">
+            <a href="posts/cookie/light"><div id="light"></div></a>
+            <a href="posts/cookie/dark"><div id="dark"></div></a>
+        </div>
+      </footer>
+    </section>
     <script src="javascripts/script.js"></script>
-</body>
+  </body>
 </html>
